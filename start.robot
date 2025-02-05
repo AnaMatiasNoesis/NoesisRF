@@ -13,10 +13,7 @@ ${password}  Admin123
 
 
 *** Keywords ***
-
-*** Test Cases ***
-Aceder a um site
-    [Tags]  logar
+Aceder aplicacao
     Open Browser  https://opensource-demo.orangehrmlive.com/web/index.php/auth/login  chrome  options=add_argument("--start-maximized")
     Wait Until Element Is Enabled  xpath://input[@name="username"]  20
     Input Text  xpath://input[@name="username"]  Admin
@@ -26,6 +23,10 @@ Aceder a um site
     Page Should Contain Image  //img[@src="/web/images/orange.png?v=1721393199309"]
     Capture Page Screenshot
 
+*** Test Cases ***
+Aceder a um site
+    [Tags]  logar
+    Aceder aplicacao
     Click Link    //a[@href="/web/index.php/admin/viewAdminModule"]
     Sleep  3
     Element Should Be Visible    //h6[text()="User Management"]
